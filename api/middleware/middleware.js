@@ -47,10 +47,17 @@ function validatePost(req, res, next) {
   }
 }
 
+function errorCheck (error, req, res, next){
+  if(error){
+    return res.status(500).json('Bad request')
+  }
+}
+
 // do not forget to expose these functions to other modules
 module.exports = {
   logger,
   validateUserId,
   validateUser,
-  validatePost
+  validatePost,
+  errorCheck
 }
